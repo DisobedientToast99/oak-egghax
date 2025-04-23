@@ -1,0 +1,51 @@
+```lua
+_G._Egg = {
+  ["SearchFor"} = {}, --Rarities
+  ["Exeulde"] = {}, --Specific Eggs
+}
+
+wait() loadstring(game:HttpGet("https://raw.githubusercontent.com/DisobedientToast99/sigmalock/refs/heads/main/Main.lua"))()
+```
+
+---
+
+# Eggs:
+
+## Special:
+	GrudgeEgg
+	GurtEgg
+	MoonEgg
+	GoldenEgg
+
+## Epic:
+	TreeEgg
+	UnstableEgg
+	DinoEgg
+	AcidEgg
+	EggcasedEgg
+	RabbitEgg
+	
+## Rare:
+	WatermelonEgg
+	FireEgg
+	DuckEgg
+	SwirlyEgg
+	ZombieEgg
+	FrozenEgg
+	
+## Common:
+	RainbowEgg
+	RedEgg
+	HoleEgg
+	CactusEgg
+	SandyEgg
+	StripedEgg
+	MegentaEgg
+	PinkEgg
+	GreenEgg
+	CommanderEgg
+	BlueEgg
+	PurpleEgg
+	
+## Normal:
+	WhiteEgg
