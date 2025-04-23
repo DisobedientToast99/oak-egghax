@@ -1,7 +1,7 @@
 ```lua
 _G._Egg = {
-  ["SearchFor"} = {}, --Rarities
-  ["Exclude"] = {}, --Specific Eggs
+  ["SearchFor"} = {"Epic", "Special"}, --Rarities
+  ["Exclude"] = {"MoonEgg"}, --Specific Eggs
 }
 
 wait() loadstring(game:HttpGet("https://raw.githubusercontent.com/DisobedientToast99/sigmalock/refs/heads/main/Main.lua"))()
