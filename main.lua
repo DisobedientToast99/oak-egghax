@@ -101,7 +101,7 @@ end
 
 local function isValidEgg(model)
 	if not model:IsA("Model") then print(model.Name, "no model") return false end
-	if table.find(_G.SearchFor, "all") or (not table.find(_G.SearchFor, eggRarities[model.Name]) or table.find(_G.Exclude, model.Name)) then return false end
+	if table.find(_G._Egg.SearchFor or {"all"}, "all") or (not table.find(_G._Egg.SearchFor or {"all"}, eggRarities[model.Name]) or table.find(_G._Egg.Exclude or {}, model.Name)) then return false end
 
 	local owner = model:FindFirstChild("Owner")
 	if not owner or owner.Value ~= nil then print(model.Name, "already owned") return false end
@@ -149,11 +149,11 @@ end
 userInputService.InputBegan:Connect(function(input, gameProcessed)
 	if gameProcessed then return end
 
-	if input.KeyCode == Enum.KeyCode.Z then
+	if input.KeyCode == _G._Egg.Keybinds.TeleportToNextEgg or Enum.KeyCode.Z then
 		player.Character:WaitForChild("HumanoidRootPart").CFrame = getRandomEgg().part.CFrame
-	elseif input.KeyCode == Enum.KeyCode.P then
+	elseif input.KeyCode == _G._Egg.Keybinds.ServerHop or Enum.KeyCode.P then
 		serverHop()
-	elseif input.KeyCode == Enum.KeyCode.G then
+	elseif input.KeyCode == _G._Egg.Keybinds.TeleportToSellSpot or Enum.KeyCode.G then
 		player.Character:WaitForChild("HumanoidRootPart").Position = Vector3.new(940, 45, 1079)
 	end
 end)
