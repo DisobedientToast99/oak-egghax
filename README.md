@@ -2,7 +2,7 @@
 
 ```lua
 _G._Egg = {
-	["SearchFor"} = {"Epic", "Special"}, --// Rarities
+	["SearchFor"] = {"Epic", "Special"}, --// Rarities
 	["Exclude"] = {"MoonEgg"}, --// Specific Eggs
 	["Keybinds"] = {
 		TeleportToSellSpot = Enum.KeyCode.G,
