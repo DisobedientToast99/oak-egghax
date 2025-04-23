@@ -11,7 +11,7 @@ _G._Egg = {
 	}
 }
 
-wait() loadstring(game:HttpGet("https://raw.githubusercontent.com/DisobedientToast99/sigmalock/refs/heads/main/Main.lua"))()
+wait() loadstring(game:HttpGet("https://raw.githubusercontent.com/DisobedientToast99/oak-egghax/refs/heads/main/main.lua"))()
 ```
 
 ---
