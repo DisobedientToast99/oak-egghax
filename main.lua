@@ -35,15 +35,15 @@ local eggRarities = {
 	["MegentaEgg"] = "Common",
 	["PinkEgg"] = "Common",
 	["SwirlyEgg"] = "Rare",
-	["BunnyEgg"] = "Epic",
+	["RabbitEgg"] = "Epic",
 	["GreenEgg"] = "Common",
-	["CommandoEgg"] = "Common",
+	["CommanderEgg"] = "Common",
 	["ZombieEgg"] = "Rare",
 	["AcidEgg"] = "Epic",
 	["BlueEgg"] = "Common",
 	["PurpleEgg"] = "Common",
 	["FrozenEgg"] = "Rare",
-	["Eggcased"] = "Epic",
+	["EggcasedEgg"] = "Epic",
 }
 
 local rarityColors = {
