@@ -212,7 +212,7 @@ game["Run Service"].RenderStepped:Connect(function()
 	end
 
 	if getTotalEggs() == 0 then
-		print("none")
+		--print("none")
 		stopTracking = true
 		task.wait(0.5)
 		stopTracking = false
