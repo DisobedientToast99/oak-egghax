@@ -1,3 +1,5 @@
+if game.PlaceId ~= 9938675423 then return end
+
 repeat task.wait() until game:IsLoaded()
 
 local player = game.Players.LocalPlayer
