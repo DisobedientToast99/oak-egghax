@@ -9,6 +9,10 @@ wait() loadstring(game:HttpGet("https://raw.githubusercontent.com/DisobedientToa
 
 ---
 
+Put "all" in SearchFor inorder to skip filtering
+
+---
+
 # Eggs:
 
 ## Special:
