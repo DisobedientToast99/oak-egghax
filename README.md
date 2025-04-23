@@ -1,3 +1,5 @@
+
+
 ```lua
 _G._Egg = {
 	["SearchFor"} = {"Epic", "Special"}, --// Rarities
@@ -15,6 +17,8 @@ wait() loadstring(game:HttpGet("https://raw.githubusercontent.com/DisobedientToa
 ---
 
 Put "all" in SearchFor skip filtering
+
+
 
 ---
 
