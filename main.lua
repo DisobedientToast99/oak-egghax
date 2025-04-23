@@ -189,9 +189,10 @@ local stopTracking = false
 game["Run Service"].RenderStepped:Connect(function()
 	if stopTracking then return end
 
-	for _, data in pairs(trackedEggs) do
+	for model, data in pairs(trackedEggs) do
 		if not data.model:IsDescendantOf(workspace) or not isValidEgg(data.model) or not data.model:FindFirstChildOfClass("MeshPart") then
-			trackedEggs[data.model] = nil
+			data.gui:Destroy()
+			trackedEggs[model] = nil
 		end
 	end
 
