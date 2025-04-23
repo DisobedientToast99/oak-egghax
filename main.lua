@@ -1,5 +1,31 @@
 if game.PlaceId ~= 9938675423 then return end
 
+local defaultSettings = {
+	["SearchFor"] = {"Epic", "Special"}, --// Rarities
+	["Exclude"] = {"MoonEgg"}, --// Specific Eggs
+	["Keybinds"] = {
+		TeleportToSellSpot = Enum.KeyCode.G,
+		TeleportToNextEgg = Enum.KeyCode.Z,
+		ServerHop = Enum.KeyCode.P
+	}
+}
+
+local settings = table.clone(_G._Egg or {})
+
+for i,v in pairs(defaultSettings) do
+	if not settings[i] then
+		settings[i] = v
+	end
+end
+
+for i,v in pairs(defaultSettings.Keybinds) do
+	if not settings.Keybinds[i] then
+		settings.Keybinds[i] = v
+	end
+end
+
+_G._Egg = settings
+
 repeat task.wait() until game:IsLoaded()
 
 local player = game.Players.LocalPlayer
@@ -149,11 +175,11 @@ end
 userInputService.InputBegan:Connect(function(input, gameProcessed)
 	if gameProcessed then return end
 
-	if input.KeyCode == (_G._Egg.Keybinds.TeleportToNextEgg or Enum.KeyCode.Z) then
+	if input.KeyCode == (_G._Egg.Keybinds.TeleportToNextEgg) then
 		player.Character:WaitForChild("HumanoidRootPart").CFrame = getRandomEgg().part.CFrame
-	elseif input.KeyCode == (_G._Egg.Keybinds.ServerHop or Enum.KeyCode.P) then
+	elseif input.KeyCode == (_G._Egg.Keybinds.ServerHop) then
 		serverHop()
-	elseif input.KeyCode == (_G._Egg.Keybinds.TeleportToSellSpot or Enum.KeyCode.G) then
+	elseif input.KeyCode == (_G._Egg.Keybinds.TeleportToSellSpot) then
 		player.Character:WaitForChild("HumanoidRootPart").Position = Vector3.new(940, 45, 1079)
 	end
 end)
