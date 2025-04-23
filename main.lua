@@ -149,11 +149,11 @@ end
 userInputService.InputBegan:Connect(function(input, gameProcessed)
 	if gameProcessed then return end
 
-	if input.KeyCode == _G._Egg.Keybinds.TeleportToNextEgg or Enum.KeyCode.Z then
+	if input.KeyCode == (_G._Egg.Keybinds.TeleportToNextEgg or Enum.KeyCode.Z) then
 		player.Character:WaitForChild("HumanoidRootPart").CFrame = getRandomEgg().part.CFrame
-	elseif input.KeyCode == _G._Egg.Keybinds.ServerHop or Enum.KeyCode.P then
+	elseif input.KeyCode == (_G._Egg.Keybinds.ServerHop or Enum.KeyCode.P) then
 		serverHop()
-	elseif input.KeyCode == _G._Egg.Keybinds.TeleportToSellSpot or Enum.KeyCode.G then
+	elseif input.KeyCode == (_G._Egg.Keybinds.TeleportToSellSpot or Enum.KeyCode.G) then
 		player.Character:WaitForChild("HumanoidRootPart").Position = Vector3.new(940, 45, 1079)
 	end
 end)
