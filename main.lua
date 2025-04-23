@@ -20,7 +20,6 @@ local eggRarities = {
 	["GurtEgg"] = "Special",
 	["MoonEgg"] = "Special",
 	["GoldenEgg"] = "Special",
-
 	["RainbowEgg"] = "Common",
 	["StripedEgg"] = "Common",
 	["WatermelonEgg"] = "Rare",
@@ -55,9 +54,6 @@ local rarityColors = {
 	Epic = Color3.fromRGB(180, 0, 255),
 	Special = Color3.fromRGB(255, 255, 0)
 }
-
-searchFor = {"Epic", "Special"}
-excluded = {"MoonEgg"}--, "GurtEgg"}
 
 local function getTotalEggs()
 	local t=0 for _,_ in trackedEggs do t+=1 end return t
@@ -104,10 +100,8 @@ local function createESP(model)
 end
 
 local function isValidEgg(model)
-	--if table.find(searchFor, eggRarities[model.Name])  then print(model.Name, eggRarities[model.Name]) end
-
 	if not model:IsA("Model") then print(model.Name, "no model") return false end
-	if not table.find(searchFor, eggRarities[model.Name]) or table.find(excluded, model.Name) then return false end
+	if table.find(_G.SearchFor, "all") or (not table.find(_G.SearchFor, eggRarities[model.Name]) or table.find(_G.Exclude, model.Name)) then return false end
 
 	local owner = model:FindFirstChild("Owner")
 	if not owner or owner.Value ~= nil then print(model.Name, "already owned") return false end
@@ -120,9 +114,9 @@ end
 
 local function trackEgg(model)
 	if not isValidEgg(model) then return end
-	
+
 	print(model.Name, eggRarities[model.Name], "valid egg")
-	
+
 	trackedEggs[model] = {
 		model = model,
 		part = model:FindFirstChildOfClass("MeshPart"),
@@ -172,10 +166,6 @@ game["Run Service"].RenderStepped:Connect(function()
 	for _, data in pairs(trackedEggs) do
 		if not data.model:IsDescendantOf(workspace) or not isValidEgg(data.model) or not data.model:FindFirstChildOfClass("MeshPart") then
 			trackedEggs[data.model] = nil
-			--else
-			--	if model:FindFirstChildOfClass("MeshPart") then
-			--		data.gui.TextLabel.Text = string.format("%s (%.1f studs)", model.Name, (model:FindFirstChildOfClass("MeshPart").Position - humanoidRootPart.Position).Magnitude)
-			--	end
 		end
 	end
 
@@ -198,10 +188,7 @@ game["Run Service"].RenderStepped:Connect(function()
 	if getTotalEggs() == 0 then
 		print("none")
 		stopTracking = true
-		--print("no eggs found, please hop")
 		task.wait(0.5)
-		--serverHop()
-		--task.wait(6)
 		stopTracking = false
 	end
 end)
